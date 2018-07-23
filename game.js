@@ -50,4 +50,16 @@ class Actor {
         return 'actor';
     }
 
+    isIntersect(actor) {
+        if (!(actor instanceof Actor) || arguments.length === 0) {
+            throw new Error();
+        }
+
+        if (actor === this || this.left >= actor.right || this.top >= actor.bottom || actor.left >= this.right || actor.top >= this.bottom ) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 }
