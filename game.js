@@ -10,9 +10,12 @@ class Vector {
         if (!(vector instanceof Vector)) {
             throw new Error('Можно прибавлять к вектору только вектор типа Vector');
         } else {
-            const result = new Vector(this.x + vector.x, this.y + vector.y)
-            return result;
+            return new Vector(this.x + vector.x, this.y + vector.y);
         }
+    }
+
+    times(multiplier) {
+        return new Vector(this.x * multiplier, this.y * multiplier);
     }
 }
 
