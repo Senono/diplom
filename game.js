@@ -7,8 +7,8 @@ class Vector {
     }
 
     plus(vector) {
-        if (!vector instanceof Vector) {
-            throw 'Можно прибавлять к вектору только вектор типа Vector';
+        if (!(vector instanceof Vector)) {
+            throw new Error('Можно прибавлять к вектору только вектор типа Vector');
         } else {
             const result = new Vector(this.x + vector.x, this.y + vector.y)
             return result;
