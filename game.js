@@ -55,11 +55,10 @@ class Actor {
             throw new Error();
         }
 
-        if (actor === this || this.left >= actor.right || this.top >= actor.bottom || actor.left >= this.right || actor.top >= this.bottom ) {
-            return false;
-        } else {
-            return true;
-        }
-
+        return !(actor === this || this.left >= actor.right || this.top >= actor.bottom || actor.left >= this.right || actor.top >= this.bottom);
     }
+}
+
+class Level {
+
 }
