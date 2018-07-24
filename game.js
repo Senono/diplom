@@ -35,7 +35,7 @@ class Actor {
     }
 
     get top() {
-        return this.pos.y + this.size.y;
+        return this.pos.y;
     }
 
     get right() {
@@ -43,7 +43,7 @@ class Actor {
     }
 
     get bottom() {
-        return this.pos.y;
+        return this.pos.y + this.size.y;
     }
 
     get type() {
