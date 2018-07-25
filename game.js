@@ -61,5 +61,13 @@ class Actor {
 }
 
 class Level {
-
+  constructor(grid = [], actors = []) {
+    this.grid = grid;
+    this.actors = actors;
+    this.player = this.actors.find(actor => actor.type === 'player');
+    this.height = grid.length;
+    this.width = Math.max(0, ...this.grid.map(value => value.length));
+    this.status = null;
+    this.finishDelay = 1;
+  }
 }
