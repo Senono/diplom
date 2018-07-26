@@ -47,7 +47,7 @@ class Actor {
     return this.pos.y + this.size.y;
   }
   
-  static get type() {
+  get type() {
     return 'actor';
   }
   
