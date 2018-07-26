@@ -47,7 +47,7 @@ class Actor {
     return this.pos.y + this.size.y;
   }
   
-  get type() {
+  static get type() {
     return 'actor';
   }
   
@@ -69,5 +69,23 @@ class Level {
     this.width = Math.max(0, ...this.grid.map(value => value.length));
     this.status = null;
     this.finishDelay = 1;
+  }
+  
+  isFinished() {
+    return this.status !== null && this.finishDelay < 0;
+  }
+  
+  actorAt(actor) {
+    if (!(actor instanceof Actor)) {
+      throw new Error();
+    }
+    
+    return this.actors.find(at => at.isIntersect(actor));
+  }
+  
+  obstacleAt(pos, size) {
+    if (!(pos instanceof Vector) || !(size instanceof Vector)) {
+      throw new Error();
+    }
   }
 }

@@ -23,7 +23,7 @@ describe('Класс Player', () => {
     it('Имеет свойство type, равное player', () => {
       const player = new Player();
 
-      expect(player.type).to.equal('player');
+      expect(Actor.type).to.equal('player');
     });
   });
 });
