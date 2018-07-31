@@ -30,7 +30,7 @@ describe('Класс Actor', () => {
     it('Создает объект со свойством type, который является строкой', () => {
       const player = new Actor();
 
-      expect(Actor.type).to.be.a('string');
+      expect(player.type).to.be.a('string');
     });
 
     it('Создает объект с методом act', () => {
@@ -60,14 +60,14 @@ describe('Класс Actor', () => {
     it('По умолчанию создается объект со свойством type равным actor', () => {
       const player = new Actor();
 
-      expect(Actor.type).to.equal('actor');
+      expect(player.type).to.equal('actor');
     });
 
     it('Свойство type нельзя изменить', () => {
       const player = new Actor();
 
       function fn() {
-        Actor.type = 'player';
+        player.type = 'player';
       }
 
       expect(fn).to.throw(Error);
