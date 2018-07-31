@@ -17,7 +17,7 @@ describe('Класс Coin', () => {
     it('Имеет свойство type, равное coin', () => {
       const coin = new Coin();
 
-      expect(Actor.type).to.equal('coin');
+      expect(coin.type).to.equal('coin');
     });
 
     it('Имеет размер Vector(0.6, 0.6)', () => {
