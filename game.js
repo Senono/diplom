@@ -108,4 +108,17 @@ class Level {
     
     return undefined;
   }
+  
+  removeActor(actor) {
+    let index = this.actors.findIndex(find => find === actor);
+    this.actors.splice(index, 1);
+  }
+  
+  noMoreActors(type) {
+    return this.actors.every(actor => actor.type !== type);
+  }
+  
+  playerTouched(type, actor) {
+    
+  }
 }
