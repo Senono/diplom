@@ -87,5 +87,25 @@ class Level {
     if (!(pos instanceof Vector) || !(size instanceof Vector)) {
       throw new Error();
     }
+    
+    let actor = new Actor(pos, size);
+    
+    if (actor.bottom > this.height) {
+      return 'lava';
+    }
+    
+    if (actor.top < 0 || actor.left < 0 || actor.right > this.width) {
+      return 'wall';
+    }
+    
+    for (let i = Math.floor(actor.left); i < actor.right; i++) {
+      for (let j = Math.floor(actor.top); j < actor.bottom; j++) {
+        if (this.grid[j][i] !== undefined) {
+          return this.grid[j][i];
+        }
+      }
+    }
+    
+    return undefined;
   }
 }
