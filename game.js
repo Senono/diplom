@@ -148,5 +148,26 @@ class LevelParser {
     return undefined;
   }
   
+  obstacleFromSymbol(symbol) {
+    switch(symbol) {
+      case 'x':
+        return 'wall';
+      case '!':
+        return 'lava';
+      default:
+        return undefined;
+    }
+  }
   
+  createGrid(arr) {
+    let grid = [];
+    for (let i = 0; i < arr.length; i++) {
+      let strArr = [];
+      for (let g = 0; arr[i].length; g++) {
+        strArr.push(this.obstacleFromSymbol(arr[i].charAt(g)));
+      }
+      grid.push(strArr);
+    }
+    return grid;
+  }
 }
