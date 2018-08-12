@@ -133,6 +133,20 @@ class Level {
         this.status = 'won';
       }
     }
-    
   }
+}
+
+class LevelParser {
+  constructor(obj) {
+    this.obj = obj;
+  }
+  
+  actorFromSymbol(symbol) {
+    if (this.obj !== undefined && symbol !== undefined && symbol in this.obj) {
+      return this.obj[symbol];
+    }
+    return undefined;
+  }
+  
+  
 }
