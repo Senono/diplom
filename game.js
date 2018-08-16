@@ -163,11 +163,31 @@ class LevelParser {
     let grid = [];
     for (let i = 0; i < arr.length; i++) {
       let strArr = [];
-      for (let g = 0; arr[i].length; g++) {
+      for (let g = 0; g < arr[i].length; g++) {
         strArr.push(this.obstacleFromSymbol(arr[i].charAt(g)));
       }
       grid.push(strArr);
     }
     return grid;
+  }
+  
+  createActors(arr) {
+    let actors = [];
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[i].length; j++) {
+        let actor = this.actorFromSymbol(arr[i].charAt(j));
+        if (actor !== undefined && typeof actor === 'function') {
+          let instance = new actor(new Vector(j, i));
+          if (instance instanceof Actor) {
+            actors.push(instance);
+          }
+        }
+      }
+    }
+    return actors;
+  }
+  
+  parse(arr) {
+    return new Level(this.createGrid(arr), this.createActors(arr))
   }
 }
